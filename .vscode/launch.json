@@ -1,0 +1,54 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ExtraLongFactorial",
+            "request": "launch",
+            "mainClass": "ExtraLongFactorial",
+            "projectName": "JavaFiles_1d8f63c2"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Problem20",
+            "request": "launch",
+            "mainClass": "Problem20"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - temp",
+            "request": "launch",
+            "mainClass": "temp"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CodeChef",
+            "request": "launch",
+            "mainClass": "CodeChef"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - JumpSearch",
+            "request": "launch",
+            "mainClass": "JumpSearch"
+        },
+        {
+            "name": "C++ Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/codechef/novchallenge19/FromZeroToInfinity.exe",
+            "stopAtEntry": false,
+            "customLaunchSetupCommands": [
+                {
+                    "text": "target-run",
+                    "description": "run target",
+                    "ignoreFailures": false
+                }
+            ],
+            "launchCompleteCommand": "exec-run",
+            "windows": {
+                "MIMode": "gdb",
+                "miDebuggerPath": "C:\\MinGw\\bin\\gdb.exe"
+            }
+        }
+    ]
+}
