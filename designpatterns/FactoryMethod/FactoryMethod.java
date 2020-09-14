@@ -1,34 +1,11 @@
-// KnifeFactory class implementation for factory class
-public class KnifeFactory {
-
-  enum KnifeType{
-    STEAK, CHEF
-  }
-
-  public Knife createknife(KnifeType knifeType){
-    Knife knife = null;
-    switch (knifeType) {
-      case KnifeType.STEAK:
-        knife = new SteakKnife();
-      case KnifeType.CHEF:
-        knife = new ChefKnife();
-        break;
-      default:
-        knife = null;
-        break;
-    }
-    return knife;
-  }
-}
-
-public abstract class KnifeStore{
-  public Knife orderKnife(KnifeType knifeType){
+abstract class KnifeStore {
+  public Knife orderKnife(KnifeType knifeType) {
     Knife knife;
     knife = KnifeFactory.createknife(knifeType);
 
     knife.sharpen();
     knife.polish();
-    knife.package();
+    knife.packaging();
 
     return knife;
   }
@@ -37,20 +14,22 @@ public abstract class KnifeStore{
 }
 
 public class Knife {
-  public void sharpen(){
-    //sharpen the knife
+  public void sharpen() {
+    // sharpen the knife
   }
-  public void polish(){
-    //polish the knife
+
+  public void polish() {
+    // polish the knife
   }
-  public void package(){
+
+  public void packaging() {
     // package the knife
   }
 }
 
-//Budget KnifeStore
+// Budget KnifeStore
 class BudgetKnifeStore extends KnifeStore {
-  Knife createknife(KnifeType knifeType){
+  Knife createknife(KnifeType knifeType) {
     Knife knife = null;
     switch (knifeType) {
       case KnifeType.STEAK:
@@ -65,4 +44,3 @@ class BudgetKnifeStore extends KnifeStore {
     return knife;
   }
 }
-
