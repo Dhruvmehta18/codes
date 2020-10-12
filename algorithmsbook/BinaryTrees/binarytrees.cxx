@@ -242,6 +242,18 @@ Node* BinaryTrees::treeMaximum(Node *root){
     return root;
 }
 
+Node* BinaryTrees::treeSuccessor(Node *root){
+    if (root!=NULL&&root->right!=NULL)
+    {
+        return treeMinimum(root->right);
+    }
+}
+
+Node* BinaryTrees::treeSuccessor(){
+    return treeSuccessor(root);
+}
+
+
 int main()
 {
     int option;
