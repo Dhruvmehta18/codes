@@ -22,8 +22,8 @@ private:
     Node* treeMaximum(Node *root);
     Node* treeSuccessor(Node *root);
     Node* treeMinimum(Node *root);
-    int searchNodeRecursive(Node *x, int y);
-    int searchNodeIterative(Node *x, int y);
+    Node* searchNodeRecursive(Node *x, int y);
+    Node* searchNodeIterative(Node *x, int y);
     void recursiveInorderTraversal(Node *x);
     void inOrderStackTraversal(Node *x);
     void inOrderTwoPointerTraversal(Node *x);
@@ -32,7 +32,7 @@ public:
     BinaryTrees();
     void insert(int x);
     void recursiveInorderTraversal(int type);
-    int search(int x, int type);
+    Node* search(int x, int type);
     Node* treeMinimum();
     Node* treeMaximum();
     Node* treeSuccessor();
@@ -169,29 +169,29 @@ void BinaryTrees::recursiveInorderTraversal(int x)
     cout << endl;
 }
 
-int BinaryTrees::searchNodeRecursive(Node *x, int y)
+Node* BinaryTrees::searchNodeRecursive(Node *x, int y)
 {
     if (x == NULL || y == x->data)
     {
-        return y;
+        return x;
     }
     if (y < x->data)
     {
-        searchNodeRecursive(x->left, y);
+        return searchNodeRecursive(x->left, y);
     }
     else
     {
-        searchNodeRecursive(x->right, y);
+        return searchNodeRecursive(x->right, y);
     }
 }
-int BinaryTrees::searchNodeIterative(Node *root, int y)
+Node* BinaryTrees::searchNodeIterative(Node *root, int y)
 {
     Node *ptr = root;
     while (ptr != NULL && y!=ptr->data)
     {
         if (y == ptr->data)
         {
-            return y;
+            return ptr;
         }
         else if (y < ptr->data)
         {
@@ -202,19 +202,17 @@ int BinaryTrees::searchNodeIterative(Node *root, int y)
             ptr = ptr->right;
         }
     }
-    return y;
+    return ptr;
 }
 
-int BinaryTrees::search(int x, int type)
+Node* BinaryTrees::search(int x, int type)
 {
     switch (type)
     {
     case 1:
-        searchNodeRecursive(root, x);
-        break;
+        return searchNodeRecursive(root, x);
     default:
-        searchNodeIterative(root, x);
-        break;
+        return searchNodeIterative(root, x);
     }
 }
 
