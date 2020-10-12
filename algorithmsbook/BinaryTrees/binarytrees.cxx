@@ -165,7 +165,7 @@ void BinaryTrees::recursiveInorderTraversal(int x)
     cout << endl;
 }
 
-int searchNodeRecursive(Node *x, int y)
+int BinaryTrees::searchNodeRecursive(Node *x, int y)
 {
     if (x == NULL || y == x->data)
     {
@@ -180,7 +180,7 @@ int searchNodeRecursive(Node *x, int y)
         searchNodeRecursive(x->right, y);
     }
 }
-int searchNodeIterative(Node *root, int y)
+int BinaryTrees::searchNodeIterative(Node *root, int y)
 {
     Node *ptr = root;
     while (ptr != NULL && y!=ptr->data)
