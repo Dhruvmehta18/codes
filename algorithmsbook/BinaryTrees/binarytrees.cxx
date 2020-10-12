@@ -32,6 +32,8 @@ public:
     int searchNodeIterative(Node *x, int y);
     Node* treeMinimum();
     Node* treeMinimum(Node *root);
+    Node* treeMaximum();
+    Node* treeMaximum(Node *root);
     Node* getRootNode()
     {
         return root;
@@ -222,6 +224,18 @@ Node* BinaryTrees::treeMinimum(Node *root){
     while (root!=NULL&&root->left!=NULL)
     {
         root = root->left;
+    }
+    return root;
+}
+
+Node* BinaryTrees::treeMaximum(){
+    return treeMaximum(root);
+}
+
+Node* BinaryTrees::treeMaximum(Node *root){
+    while (root!=NULL&&root->right!=NULL)
+    {
+        root = root->right;
     }
     return root;
 }
