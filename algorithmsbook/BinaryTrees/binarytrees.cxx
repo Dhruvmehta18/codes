@@ -21,6 +21,7 @@ class BinaryTrees
 private:
     Node* treeMaximum(Node *root);
     Node* treeSuccessor(Node *root, int x);
+    Node* treePredecessor(Node *root, int x);
     Node* treeMinimum(Node *root);
     Node* searchNodeRecursive(Node *x, int y);
     Node* searchNodeIterative(Node *x, int y);
@@ -36,6 +37,7 @@ public:
     Node* treeMinimum();
     Node* treeMaximum();
     Node* treeSuccessor(int x);
+    Node* treePredecessor(int x);
     Node* getRootNode()
     {
         return root;
@@ -271,6 +273,39 @@ Node* BinaryTrees::treeSuccessor(Node *root, int x){
 
 Node* BinaryTrees::treeSuccessor(int x){
     return treeSuccessor(root, x);
+}
+
+Node* BinaryTrees::treePredecessor(Node *root, int x){
+    Node *ptr = searchNodeIterative(root, x);
+    if (ptr==NULL)
+    {
+        return;
+    }
+    if (ptr->left!=NULL)
+    {
+        return treeMaximum(ptr->left);
+    } else{
+        Node* temp = root;
+        Node* predec = NULL;
+        while (temp!=NULL)
+        {
+            if (temp->data>ptr->data)
+            {
+                temp = temp->left;
+            } else if (temp->data<ptr->data)
+            {
+                predec = temp;
+                temp = temp->right;
+            } else{
+                break;
+            }
+        }
+        return predec;
+    }
+}
+
+Node* BinaryTrees::treePredecessor(int x){
+    return treePredecessor(root, x);
 }
 
 
