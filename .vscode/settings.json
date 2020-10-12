@@ -1,5 +1,8 @@
 {
   "files.associations": {
-    "aclapi.h": "c"
+    "*.html": "django-html",
+    "aclapi.h": "c",
+    "list": "cpp",
+    "xlocale": "cpp"
   }
 }

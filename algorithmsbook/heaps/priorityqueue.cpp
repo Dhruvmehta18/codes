@@ -24,6 +24,7 @@ public:
 	// to get index of left child of node at index i 
 	int left(int i) { return (2*i + 1); } 
 
+
 	// to get index of right child of node at index i 
 	int right(int i) { return (2*i + 2); } 
 
@@ -42,7 +43,6 @@ public:
 	// Inserts a new key 'k' 
 	void insertKey(int k); 
 }; 
-
 // Constructor: Builds a heap from a given array a[] of given size 
 MinHeap::MinHeap(int cap) 
 { 
