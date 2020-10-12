@@ -30,7 +30,9 @@ public:
     int search(int x, int type);
     int searchNodeRecursive(Node *x, int y);
     int searchNodeIterative(Node *x, int y);
-    Node *getRootNode()
+    Node* treeMinimum();
+    Node* treeMinimum(Node *root);
+    Node* getRootNode()
     {
         return root;
     }
@@ -210,6 +212,18 @@ int BinaryTrees::search(int x, int type)
         searchNodeIterative(root, x);
         break;
     }
+}
+
+Node* BinaryTrees::treeMinimum(){
+    return treeMinimum(root);
+}
+
+Node* BinaryTrees::treeMinimum(Node *root){
+    while (root!=NULL&&root->left!=NULL)
+    {
+        root = root->left;
+    }
+    return root;
 }
 
 int main()
