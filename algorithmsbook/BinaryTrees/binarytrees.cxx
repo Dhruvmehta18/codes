@@ -18,22 +18,24 @@ struct Node
 class BinaryTrees
 {
     struct Node *root;
-
-public:
-    BinaryTrees();
-    void insert(int x);
-    void insertNode(Node *root, int x);
-    void recursiveInorderTraversal(int x);
+private:
+    Node* treeMaximum(Node *root);
+    Node* treeSuccessor(Node *root);
+    Node* treeMinimum(Node *root);
+    int searchNodeRecursive(Node *x, int y);
+    int searchNodeIterative(Node *x, int y);
     void recursiveInorderTraversal(Node *x);
     void inOrderStackTraversal(Node *x);
     void inOrderTwoPointerTraversal(Node *x);
+    void insertNode(Node *root, int type);
+public:
+    BinaryTrees();
+    void insert(int x);
+    void recursiveInorderTraversal(int type);
     int search(int x, int type);
-    int searchNodeRecursive(Node *x, int y);
-    int searchNodeIterative(Node *x, int y);
     Node* treeMinimum();
-    Node* treeMinimum(Node *root);
     Node* treeMaximum();
-    Node* treeMaximum(Node *root);
+    Node* treeSuccessor();
     Node* getRootNode()
     {
         return root;
