@@ -20,7 +20,7 @@ class BinaryTrees
     struct Node *root;
 private:
     Node* treeMaximum(Node *root);
-    Node* treeSuccessor(Node *root);
+    Node* treeSuccessor(Node *root, int x);
     Node* treeMinimum(Node *root);
     Node* searchNodeRecursive(Node *x, int y);
     Node* searchNodeIterative(Node *x, int y);
@@ -35,7 +35,7 @@ public:
     Node* search(int x, int type);
     Node* treeMinimum();
     Node* treeMaximum();
-    Node* treeSuccessor();
+    Node* treeSuccessor(int x);
     Node* getRootNode()
     {
         return root;
@@ -240,15 +240,37 @@ Node* BinaryTrees::treeMaximum(Node *root){
     return root;
 }
 
-Node* BinaryTrees::treeSuccessor(Node *root){
-    if (root!=NULL&&root->right!=NULL)
+Node* BinaryTrees::treeSuccessor(Node *root, int x){
+    Node *ptr = searchNodeIterative(root, x);
+    if (ptr==NULL)
     {
-        return treeMinimum(root->right);
+        return;
+    }
+    if (ptr->right!=NULL)
+    {
+        return treeMinimum(ptr->right);
+    } else{
+        Node* temp = root;
+        Node* succ = NULL;
+        while (temp!=NULL)
+        {
+            if (temp->data<ptr->data)
+            {
+                temp = temp->right;
+            } else if (temp->data>ptr->data)
+            {
+                succ = temp;
+                temp = temp->left;
+            } else{
+                break;
+            }
+        }
+        return succ;
     }
 }
 
-Node* BinaryTrees::treeSuccessor(){
-    return treeSuccessor(root);
+Node* BinaryTrees::treeSuccessor(int x){
+    return treeSuccessor(root, x);
 }
 
 
